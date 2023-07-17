@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Riproduzione Video</title>
+  <title>Riproduzione Video Amplificata</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <video width="640" height="360" controls>
-    <source src="https://vixcloud.co/v2/playlist/159978?type=video&rendition=720p&token=FgsgbZOkChJh6F8nDtfBLw&expires=1694773597&canCast=1&n=1" type="video/mp4">
-    Il tuo browser non supporta la riproduzione di video HTML5.
-  </video>
+  <div class="video-container">
+    <video controls>
+      <source src="video.mp4" type="video/mp4">
+      Il tuo browser non supporta la riproduzione di video HTML5.
+    </video>
+    <div class="controls">
+      <button onclick="playVideo()">Play</button>
+      <button onclick="pauseVideo()">Pause</button>
+    </div>
+  </div>
+
+  <div class="video-list">
+    <div class="video-list-item">
+      <span>Video 1:</span>
+      <button onclick="changeVideo('video1.mp4')">Riproduci</button>
+    </div>
+    <div class="video-list-item">
+      <span>Video 2:</span>
+      <button onclick="changeVideo('video2.mp4')">Riproduci</button>
+    </div>
+    <div class="video-list-item">
+      <span>Video 3:</span>
+      <button onclick="changeVideo('video3.mp4')">Riproduci</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
