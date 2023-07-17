@@ -1,36 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Riproduzione Video Amplificata</title>
+  <title>Netflix Clone</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="video-container">
-    <video controls>
-      <source src="video.mp4" type="video/mp4">
-      Il tuo browser non supporta la riproduzione di video HTML5.
-    </video>
-    <div class="controls">
-      <button onclick="playVideo()">Play</button>
-      <button onclick="pauseVideo()">Pause</button>
-    </div>
-  </div>
+  <header>
+    <nav>
+      <!-- Inserisci qui il logo e i link di navigazione -->
+      <img src="logo.png" alt="Logo Netflix">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Film</a></li>
+        <li><a href="#">Serie TV</a></li>
+        <li><a href="#">Ultime Uscite</a></li>
+        <li><a href="#">La mia lista</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="video-list">
-    <div class="video-list-item">
-      <span>Video 1:</span>
-      <button onclick="changeVideo('video1.mp4')">Riproduci</button>
-    </div>
-    <div class="video-list-item">
-      <span>Video 2:</span>
-      <button onclick="changeVideo('video2.mp4')">Riproduci</button>
-    </div>
-    <div class="video-list-item">
-      <span>Video 3:</span>
-      <button onclick="changeVideo('video3.mp4')">Riproduci</button>
-    </div>
-  </div>
+  <main>
+    <section class="hero-section">
+      <!-- Inserisci qui l'immagine o il video in primo piano -->
+      <img src="hero-image.jpg" alt="Immagine in primo piano">
+    </section>
 
-  <script src="script.js"></script>
+    <section class="video-section">
+      <h2>Ultime uscite</h2>
+      <div class="video-grid">
+        <!-- Inserisci qui i video recenti in una griglia -->
+        <div class="video-card">
+          <img src="video1-thumbnail.jpg" alt="Thumbnail video 1">
+          <h3>Titolo Video 1</h3>
+        </div>
+        <div class="video-card">
+          <img src="video2-thumbnail.jpg" alt="Thumbnail video 2">
+          <h3>Titolo Video 2</h3>
+        </div>
+        <div class="video-card">
+          <img src="video3-thumbnail.jpg" alt="Thumbnail video 3">
+          <h3>Titolo Video 3</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <h2>Popolari</h2>
+      <div class="video-grid">
+        <!-- Inserisci qui i video popolari in una griglia -->
+        <div class="video-card">
+          <img src="video4-thumbnail.jpg" alt="Thumbnail video 4">
+          <h3>Titolo Video 4</h3>
+        </div>
+        <div class="video-card">
+          <img src="video5-thumbnail.jpg" alt="Thumbnail video 5">
+          <h3>Titolo Video 5</h3>
+        </div>
+        <div class="video-card">
+          <img src="video6-thumbnail.jpg" alt="Thumbnail video 6">
+          <h3>Titolo Video 6</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Inserisci qui il footer con i link e altre informazioni -->
+    <p>© 2023 Netflix Clone. All rights reserved.</p>
+  </footer>
 </body>
 </html>
