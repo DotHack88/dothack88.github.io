@@ -1,0 +1,11 @@
+title: Game Over 🎮
+description: Gestionale + E-commerce per Gamer
+author: Game Over Devs
+baseurl: ""
+url: "https://tuo-username.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+paginate: 5
+permalink: pretty
