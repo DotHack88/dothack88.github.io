@@ -6,9 +6,36 @@
 }
 body.light { background: var(--bg-light); color: #222; }
 body.dark  { background: var(--bg-dark); color: var(--text-dark); }
-header { position: sticky; top:0; display:flex; justify-content:space-between; background:#1f1f1f; padding:1rem; }
-nav a { color: var(--accent); margin: 0 1rem; text-decoration:none; }
-#theme-toggle { background:none; border:none; color: var(--accent); cursor:pointer; }
-code { background:#2d2d2d; color: #fff; padding:0.2em 0.4em; border-radius:4px; }
-.copy-btn { float:right; cursor:pointer; font-size:0.8rem; color: var(--accent); }
-@media (max-width:600px){ header nav {display:none;} }
+header {
+  position: sticky; top: 0;
+  display: flex; justify-content: space-between;
+  align-items: center;
+  background: var(--bg-dark);
+  padding: 1rem 2rem;
+}
+.logo { font-size: 1.5rem; color: var(--accent); }
+nav a {
+  margin: 0 1rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+#theme-toggle { background: none; border: none; color: var(--accent); cursor: pointer; }
+main { max-width: 800px; margin: auto; padding: 2rem; }
+pre code {
+  display: block;
+  background: #2d2d2d;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  position: relative;
+}
+.copy-btn {
+  position: absolute;
+  top: 0.5rem; right: 0.5rem;
+  background: var(--accent);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #121212;
+}
