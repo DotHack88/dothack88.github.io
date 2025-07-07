@@ -1,23 +1,22 @@
-## This is Paul's Notion portfolio
+654 / 5.000
+## This is Dothack88's portfolio
 
-I am Paul, open-source dev. I create apps and websites for start-ups, solopreneurs, corporations and local businesses. I truly enjoy helping businesses achieve their goals by delivering an exceptional websites and apps that communicates their business value to their target audience.
+I'm Dothck88, hoping to become an open source developer. I'm currently looking for a job but in my free time I try to create small programs that can be useful
 
-Here's take this free SaaS template for you [This is a link](https://saasy-dark.netlify.app/)
+Here's this free SaaS template for you [This is a link](https://saasy-dark.netlify.app/)
 
-
-### Also please have a look at this beautiful picture
+### Also check out this beautiful image
 
 ![this is an image](./assets/images/home/forest.jpg)
 
-Truly marvelous!
+Really beautiful!
 
-> what about this note
+> how about this note?
 
-* This is a bullet point I want.
+* This is a bullet point I would like.
 * This is another bullet point.
 
-1. This is number
-
+1. This is the number
 
 ```py
 from universe import earth
