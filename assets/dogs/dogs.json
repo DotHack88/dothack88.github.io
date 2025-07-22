@@ -1,0 +1,23 @@
+[
+    {
+        "nome": "Lola",
+        "eta": "2 anni",
+        "razza": "Meticcia",
+        "descrizione": "Dolcissima e affettuosa. Cerca casa con giardino o famiglie attive.",
+        "img": "./assets/dogs/lola.jpg"
+    },
+    {
+        "nome": "Asia",
+        "eta": "5 anni",
+        "razza": "Labrador mix",
+        "descrizione": "Asia è tranquilla e adatta a famiglie con bambini. Vaccinata e sterilizzata.",
+        "img": "./assets/dogs/asia.jpg"
+    },
+    {
+        "nome": "Rex",
+        "eta": "3 anni",
+        "razza": "Pastore tedesco",
+        "descrizione": "Rex è energico, adora giocare e ha bisogno di spazio.",
+        "img": "./assets/dogs/rex.jpg"
+    }
+]
