@@ -151,3 +151,20 @@ footer {
   transform: scale(1.2);
   color: #ffca28;
 }
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-icons img {
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
