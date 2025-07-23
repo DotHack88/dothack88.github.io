@@ -121,3 +121,16 @@ footer {
     flex-direction: column;
   }
 }
+
+.dog-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.dog-card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  color: #37474f;
+}
