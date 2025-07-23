@@ -242,3 +242,22 @@ footer {
   border-radius: 0;
   box-shadow: none;
 }
+
+.slider {
+  position: relative;
+  width: 100vw; /* Larghezza intera del viewport */
+  height: 60vh; /* Altezza: 60% dell’altezza visibile della finestra */
+  overflow: hidden;
+}
+
+.slide {
+  flex: 1 0 100%;
+  max-width: 100vw;
+  height: 100%; /* Fa sì che l'immagine occupi tutta l'altezza dello slider */
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Per coprire l'intera area senza deformazioni */
+}
