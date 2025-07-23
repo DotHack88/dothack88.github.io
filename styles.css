@@ -134,3 +134,20 @@ footer {
   font-size: 1.4rem;
   color: #37474f;
 }
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-icons a {
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ffca28;
+}
