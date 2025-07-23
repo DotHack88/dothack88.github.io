@@ -175,6 +175,10 @@ footer {
   margin: 0 auto;
 }
 
+.banner-img {
+  margin-bottom: 1.5rem; /* spazio tra i banner */
+}
+
 .banner-img img {
   width: 100%;
   height: auto;
@@ -183,3 +187,4 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1s ease-in-out;
 }
+
