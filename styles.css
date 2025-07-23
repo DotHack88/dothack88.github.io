@@ -288,3 +288,21 @@ footer {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* rimuove sottolineatura */
+  color: inherit; /* mantiene colore testo */
+  cursor: pointer;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
