@@ -5,50 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DotHack88 – Cinofilia</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="Logo DotHack88" class="logo" />
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Logo DotHack88" class="logo">
+      <span class="brand">DotHack88</span>
+    </div>
     <nav>
-      <ul>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#servizi">Servizi</a></li>
         <li><a href="#chi-sono">Chi Sono</a></li>
         <li><a href="#adozioni">Adozioni</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
+      <div class="hamburger" id="hamburger">&#9776;</div>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1>Benvenuto nel mondo di DotHack88</h1>
-      <p>Educazione, benessere e amore per i cani.</p>
+      <h1>Amore, educazione e rispetto per i cani</h1>
+      <p>Servizi cinofili personalizzati a misura di zampa 🐾</p>
     </section>
 
     <section id="chi-sono">
       <h2>👤 Chi Sono</h2>
-      <p>Mi chiamo Emanuele e sono un appassionato cinofilo in formazione per diventare educatore. Mi occupo di offrire servizi personalizzati per il benessere del tuo cane.</p>
+      <p>Mi chiamo Emanuele e sono un appassionato cinofilo in formazione per diventare educatore. Aiuto famiglie e cani a vivere insieme in armonia.</p>
     </section>
 
     <section id="servizi">
       <h2>🛠 Servizi Offerti</h2>
-      <ul>
-        <li>🐾 Passeggiate cinofile</li>
-        <li>🏠 Servizio diurno e notturno presso l'abitazione</li>
-        <li>🚐 Servizio navetta</li>
-        <li>🐶 Asilo presso centro cinofilo convenzionato</li>
-      </ul>
+      <div class="cards">
+        <div class="card">🐾 Passeggiate cinofile</div>
+        <div class="card">🏠 Servizio diurno e notturno</div>
+        <div class="card">🚐 Servizio navetta</div>
+        <div class="card">🐶 Asilo presso centro cinofilo</div>
+      </div>
     </section>
 
     <section id="adozioni">
-      <h2>❤️ Adozioni del cuore</h2>
-      <p>Consulta la sezione adozioni per conoscere i cani in cerca di casa.</p>
-      <a href="adoptions.html" class="btn">Vai alle Adozioni</a>
+      <h2>❤️ Adozioni del Cuore</h2>
+      <p>Scopri i cani che cercano una famiglia.</p>
+      <a href="adoptions.html" class="btn">Vai alla sezione Adozioni</a>
     </section>
 
     <section id="contatti">
       <h2>📬 Contattami</h2>
-      <p>Per info, collaborazioni o prenotazioni:</p>
+      <p>Per info o richieste:</p>
       <ul>
         <li>Email: <a href="mailto:tuamail@example.com">tuamail@example.com</a></li>
         <li>Instagram: <a href="https://instagram.com/tua_pagina" target="_blank">@tua_pagina</a></li>
