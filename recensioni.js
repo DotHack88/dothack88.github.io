@@ -1,44 +1,61 @@
-document.getElementById('recensione-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('recensioneForm');
+  const lista = document.getElementById('recensioniList');
 
-  const nome = this.nome.value;
-  const testo = this.testo.value;
-  const fotoFile = this.foto.files[0];
+  // Carica recensioni da localStorage
+  function caricaRecensioni() {
+    const data = JSON.parse(localStorage.getItem('recensioni')) || [];
+    lista.innerHTML = '';
 
-  if (!fotoFile) return alert("Carica una foto!");
+    data.forEach(rec => {
+      const div = document.createElement('div');
+      div.className = 'recensione';
+      div.innerHTML = `
+        <p><strong>${rec.nome || 'Anonimo'}</strong> – ${'⭐'.repeat(rec.voto)}</p>
+        <p>${rec.testo}</p>
+        ${rec.foto ? `<img src="${rec.foto}" alt="foto recensione" style="max-width:200px;">` : ''}
+        <hr>
+      `;
+      lista.appendChild(div);
+    });
+  }
 
-  const reader = new FileReader();
-  reader.onload = function (event) {
-    const nuovaRecensione = {
-      nome,
-      testo,
-      foto: event.target.result
+  caricaRecensioni();
+
+  // Salva nuova recensione
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const nome = formData.get('nome');
+    const email = formData.get('email');
+    const voto = parseInt(formData.get('voto'));
+    const testo = formData.get('testo');
+    const file = formData.get('foto');
+
+    const reader = new FileReader();
+    reader.onload = function () {
+      const fotoBase64 = file && file.size > 0 ? reader.result : null;
+
+      const nuovaRecensione = {
+        nome,
+        email,
+        voto,
+        testo,
+        foto: fotoBase64
+      };
+
+      const recensioni = JSON.parse(localStorage.getItem('recensioni')) || [];
+      recensioni.push(nuovaRecensione);
+      localStorage.setItem('recensioni', JSON.stringify(recensioni));
+      form.reset();
+      caricaRecensioni();
     };
 
-    const recensioni = JSON.parse(localStorage.getItem("recensioni")) || [];
-    recensioni.push(nuovaRecensione);
-    localStorage.setItem("recensioni", JSON.stringify(recensioni));
-    mostraRecensioni();
-    document.getElementById("recensione-form").reset();
-  };
-  reader.readAsDataURL(fotoFile);
-});
-
-function mostraRecensioni() {
-  const recensioni = JSON.parse(localStorage.getItem("recensioni")) || [];
-  const container = document.getElementById("recensioni-lista");
-  container.innerHTML = "";
-
-  recensioni.forEach(r => {
-    const div = document.createElement("div");
-    div.className = "recensione";
-    div.innerHTML = `
-      <strong>${r.nome}</strong>
-      <p>${r.testo}</p>
-      <img src="${r.foto}" alt="Foto di ${r.nome}" />
-    `;
-    container.appendChild(div);
+    if (file && file.size > 0) {
+      reader.readAsDataURL(file);
+    } else {
+      reader.onload(); // Nessuna foto, procedi
+    }
   });
-}
-
-document.addEventListener("DOMContentLoaded", mostraRecensioni);
+});

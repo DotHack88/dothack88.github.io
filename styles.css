@@ -318,3 +318,23 @@ footer {
     height: 40px;
   }
 }
+
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.recensione {
+  border: 1px solid #ddd;
+  padding: 1em;
+  margin: 1em auto;
+  max-width: 600px;
+  border-radius: 6px;
+  background: #f9f9f9;
+}

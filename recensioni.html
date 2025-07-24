@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recensioni - SmartDogNapoli</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">🐶 SmartDogNapoli</a>
+  </header>
+
+  <main>
+    <h1>Lascia una Recensione</h1>
+    <form id="recensioneForm">
+      <label>Nome e Cognome (opzionale):
+        <input type="text" name="nome" placeholder="Mario Rossi">
+      </label>
+
+      <label>Email (opzionale):
+        <input type="email" name="email" placeholder="esempio@mail.com">
+      </label>
+
+      <label>Voto:
+        <select name="voto" required>
+          <option value="">Seleziona</option>
+          <option value="1">⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+      </label>
+
+      <label>Foto (opzionale):
+        <input type="file" name="foto" accept="image/*">
+      </label>
+
+      <label>Recensione:
+        <textarea name="testo" required placeholder="Scrivi la tua esperienza..."></textarea>
+      </label>
+
+      <button type="submit">Invia Recensione</button>
+    </form>
+
+    <h2>📢 Recensioni degli utenti</h2>
+    <div id="recensioniList"></div>
+  </main>
+
+  <script src="recensioni.js"></script>
+</body>
+</html>
