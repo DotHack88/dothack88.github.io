@@ -2,122 +2,230 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recensioni - DotHack88</title>
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recensioni – Smartdognapoli</title>
 
+  <!-- Icona e font -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Stile integrato, armonizzato e semplice */
+    body {
+      font-family: 'Nunito', Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0; padding: 0;
+      color: #333;
+    }
     header, footer {
       background-color: #1a1a1a;
       color: white;
-      text-align: center;
-      padding: 1rem 0;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header a.logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+    }
+    header a.logo-container img.logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+    header a.logo-container .brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+    nav ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul.nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav ul.nav-links li a:hover,
+    nav ul.nav-links li a:focus {
+      color: #007bff;
+      outline: none;
     }
 
-    .container {
+    main {
       max-width: 700px;
-      margin: 3rem auto;
+      margin: 2rem auto 4rem auto;
       background: white;
+      padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      padding: 2rem;
     }
-
     h1 {
       text-align: center;
-      color: #333;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: #222;
     }
 
-    input, textarea, select, button {
+    form input[type="text"],
+    form input[type="email"],
+    form textarea,
+    form select,
+    form input[type="file"],
+    form button {
       width: 100%;
-      padding: 12px;
+      padding: 12px 15px;
       margin: 10px 0;
-      border: 1px solid #ccc;
       border-radius: 8px;
+      border: 1px solid #ccc;
       font-size: 1rem;
+      font-family: inherit;
+      box-sizing: border-box;
     }
-
-    button {
+    form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    form button {
       background-color: #007bff;
       color: white;
-      font-weight: bold;
+      border: none;
+      font-weight: 700;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background-color 0.3s;
     }
-
-    button:hover {
+    form button:hover,
+    form button:focus {
       background-color: #0056b3;
+      outline: none;
     }
-
-    .review {
-      border-top: 1px solid #eee;
+    label[for="rating"] {
+      font-weight: 600;
+      display: block;
       margin-top: 1rem;
-      padding-top: 1rem;
-    }
-
-    .stars {
-      color: #ffc107;
-    }
-
-    .file-label {
-      font-size: 0.9rem;
-      color: #555;
+      margin-bottom: 0.3rem;
     }
 
     .reviews-list {
       margin-top: 2rem;
     }
-
+    .review {
+      border-top: 1px solid #eee;
+      padding: 1rem 0;
+    }
+    .review strong {
+      font-size: 1.1rem;
+      color: #222;
+    }
+    .stars {
+      color: #ffc107;
+      font-size: 1.2rem;
+      margin: 0.2rem 0 0.5rem 0;
+      display: inline-block;
+    }
+    .review p {
+      margin: 0.3rem 0 0.5rem 0;
+      white-space: pre-line;
+    }
     .review-img {
-      max-width: 100px;
+      max-width: 120px;
+      max-height: 120px;
+      object-fit: cover;
       border-radius: 8px;
-      margin-top: 10px;
+      margin-top: 8px;
+      display: block;
+      box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 2rem;
+      background-color: #1a1a1a;
+      color: white;
+      font-size: 0.9rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      nav ul.nav-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      main {
+        margin: 1rem 1rem 6rem 1rem;
+      }
+      footer {
+        position: static;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h2>DotHack88</h2>
+    <a href="index.html" class="logo-container" aria-label="Torna alla home">
+      <img src="assets/logo.png" alt="Logo Smartdognapoli" class="logo" />
+      <span class="brand">Smartdognapoli</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#servizi">Servizi</a></li>
+        <li><a href="index.html#chi-sono">Chi Sono</a></li>
+        <li><a href="adoptions.html">Adozioni</a></li>
+        <li><a href="index.html#contatti">Contatti</a></li>
+        <li><a href="recensioni.html" aria-current="page">Recensioni</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <div class="container">
-      <h1>Lascia una Recensione</h1>
+    <h1>Lascia una Recensione</h1>
 
-      <form id="reviewForm">
-        <input type="text" id="name" placeholder="Nome e Cognome (facoltativo)">
-        <input type="email" id="email" placeholder="Email (facoltativa)">
-        
-        <label for="rating">Voto:</label>
-        <select id="rating" required>
-          <option value="5">⭐⭐⭐⭐⭐</option>
-          <option value="4">⭐⭐⭐⭐</option>
-          <option value="3">⭐⭐⭐</option>
-          <option value="2">⭐⭐</option>
-          <option value="1">⭐</option>
-        </select>
+    <form id="reviewForm" aria-label="Modulo per lasciare una recensione">
+      <input type="text" id="name" placeholder="Nome e Cognome (facoltativo)" aria-label="Nome e Cognome" />
+      <input type="email" id="email" placeholder="Email (facoltativa)" aria-label="Email" />
+      
+      <label for="rating">Voto <span aria-hidden="true">⭐</span>:</label>
+      <select id="rating" required aria-required="true" aria-describedby="ratingHelp">
+        <option value="">Seleziona un voto</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="1">⭐</option>
+      </select>
+      <small id="ratingHelp" style="color:#555; font-size:0.85rem;">Seleziona un voto da 1 a 5 stelle</small>
 
-        <textarea id="message" placeholder="Scrivi la tua recensione qui..." rows="4" required></textarea>
-        
-        <input type="file" id="imageUpload" accept="image/*" />
-        
-        <button type="submit">Invia Recensione</button>
-      </form>
+      <textarea id="message" placeholder="Scrivi la tua recensione qui..." rows="5" required aria-required="true"></textarea>
+      
+      <input type="file" id="imageUpload" accept="image/*" aria-label="Carica immagine facoltativa" />
+      
+      <button type="submit">Invia Recensione</button>
+    </form>
 
-      <div class="reviews-list" id="reviewsList"></div>
-    </div>
+    <section class="reviews-list" id="reviewsList" aria-live="polite" aria-relevant="additions"></section>
   </main>
 
   <footer>
-    <p>&copy; 2025 DotHack88 - Tutti i diritti riservati</p>
+    <p>&copy; 2025 Smartdognapoli – Tutti i diritti riservati.</p>
   </footer>
 
   <script>
@@ -143,24 +251,40 @@
         div.classList.add("review");
 
         div.innerHTML = `
-          <strong>${r.name || "Anonimo"}</strong><br>
-          <span class="stars">${"⭐".repeat(r.rating)}</span><br>
-          <p>${r.message}</p>
-          ${r.image ? `<img src="${r.image}" class="review-img" />` : ""}
+          <strong>${r.name ? escapeHTML(r.name) : "Anonimo"}</strong><br>
+          <span class="stars" aria-label="Voto: ${r.rating} stelle">${"⭐".repeat(r.rating)}</span><br>
+          <p>${escapeHTML(r.message).replace(/\n/g, "<br>")}</p>
+          ${r.image ? `<img src="${r.image}" alt="Immagine caricata dalla recensione di ${escapeHTML(r.name || "Anonimo")}" class="review-img" />` : ""}
         `;
 
         reviewsList.appendChild(div);
       });
     }
 
+    // Funzione per prevenire XSS semplice
+    function escapeHTML(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
     reviewForm.addEventListener("submit", e => {
       e.preventDefault();
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim(); // usiamo solo per info, non mostrato
       const rating = document.getElementById("rating").value;
-      const message = document.getElementById("message").value;
+      const message = document.getElementById("message").value.trim();
       const file = document.getElementById("imageUpload").files[0];
+
+      if (!rating) {
+        alert("Per favore, seleziona un voto.");
+        return;
+      }
+      if (!message) {
+        alert("Per favore, scrivi la tua recensione.");
+        return;
+      }
 
       const reader = new FileReader();
       reader.onload = function() {
