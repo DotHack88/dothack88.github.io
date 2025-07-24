@@ -1,61 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('recensioneForm');
-  const lista = document.getElementById('recensioniList');
+  const form = document.getElementById('reviewForm');
+  const recensioniList = document.getElementById('recensioniList');
 
-  // Carica recensioni da localStorage
-  function caricaRecensioni() {
-    const data = JSON.parse(localStorage.getItem('recensioni')) || [];
-    lista.innerHTML = '';
+  // Carica le recensioni salvate
+  const recensioni = JSON.parse(localStorage.getItem('recensioni')) || [];
+  recensioni.forEach(showRecensione);
 
-    data.forEach(rec => {
-      const div = document.createElement('div');
-      div.className = 'recensione';
-      div.innerHTML = `
-        <p><strong>${rec.nome || 'Anonimo'}</strong> – ${'⭐'.repeat(rec.voto)}</p>
-        <p>${rec.testo}</p>
-        ${rec.foto ? `<img src="${rec.foto}" alt="foto recensione" style="max-width:200px;">` : ''}
-        <hr>
-      `;
-      lista.appendChild(div);
-    });
-  }
-
-  caricaRecensioni();
-
-  // Salva nuova recensione
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form);
-    const nome = formData.get('nome');
-    const email = formData.get('email');
-    const voto = parseInt(formData.get('voto'));
-    const testo = formData.get('testo');
-    const file = formData.get('foto');
+    const nome = document.getElementById('nome').value || "Anonimo";
+    const email = document.getElementById('email').value || "Non fornita";
+    const voto = parseInt(document.getElementById('voto').value);
+    const testo = document.getElementById('testo').value;
+    const fotoInput = document.getElementById('foto');
 
     const reader = new FileReader();
     reader.onload = function () {
-      const fotoBase64 = file && file.size > 0 ? reader.result : null;
+      const foto = reader.result;
 
-      const nuovaRecensione = {
-        nome,
-        email,
-        voto,
-        testo,
-        foto: fotoBase64
-      };
-
-      const recensioni = JSON.parse(localStorage.getItem('recensioni')) || [];
+      const nuovaRecensione = { nome, email, voto, testo, foto };
       recensioni.push(nuovaRecensione);
       localStorage.setItem('recensioni', JSON.stringify(recensioni));
+
+      showRecensione(nuovaRecensione);
       form.reset();
-      caricaRecensioni();
     };
 
-    if (file && file.size > 0) {
-      reader.readAsDataURL(file);
+    if (fotoInput.files[0]) {
+      reader.readAsDataURL(fotoInput.files[0]);
     } else {
-      reader.onload(); // Nessuna foto, procedi
+      const nuovaRecensione = { nome, email, voto, testo, foto: null };
+      recensioni.push(nuovaRecensione);
+      localStorage.setItem('recensioni', JSON.stringify(recensioni));
+      showRecensione(nuovaRecensione);
+      form.reset();
     }
   });
+
+  function showRecensione({ nome, email, voto, testo, foto }) {
+    const div = document.createElement('div');
+    div.classList.add('recensione');
+
+    const stelle = '⭐'.repeat(voto);
+    div.innerHTML = `
+      <p><strong>${nome}</strong> - <span class="stelle">${stelle}</span></p>
+      <p>${testo}</p>
+      ${foto ? `<img src="${foto}" alt="Foto utente" />` : ''}
+    `;
+
+    recensioniList.prepend(div);
+  }
 });
