@@ -1,0 +1,30 @@
+.recensioni {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-top: 2px solid #ccc;
+}
+
+.recensioni h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#recensione-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+#recensioni-lista .recensione {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+}
+
+.recensione img {
+  max-width: 150px;
+  border-radius: 8px;
+}

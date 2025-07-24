@@ -22,6 +22,7 @@
         <li><a href="#chi-sono">Chi Sono</a></li>
         <li><a href="adoptions.html">Adozioni</a></li>
         <li><a href="#contatti">Contatti</a></li>
+        <li><a href="#recensioni">Recensioni</a></li>
       </ul>
       <div class="hamburger" id="hamburger">&#9776;</div>
     </nav>
@@ -100,6 +101,20 @@
       </ul>
     </section>
   </main>
+
+  <section class="recensioni" id="recensioni">
+  <h2>Lascia una recensione</h2>
+  <form id="recensione-form">
+    <input type="text" name="nome" placeholder="Il tuo nome" required>
+    <textarea name="testo" placeholder="Scrivi qui la tua esperienza..." required></textarea>
+    <input type="file" name="foto" accept="image/*" required>
+    <button type="submit">Invia</button>
+  </form>
+
+  <div id="recensioni-lista">
+    <!-- Le recensioni caricate appariranno qui -->
+  </div>
+</section>
 
 <footer>
   <div class="social-icons">
