@@ -292,17 +292,29 @@ footer {
 .logo-container {
   display: flex;
   align-items: center;
-  text-decoration: none; /* rimuove sottolineatura */
-  color: inherit; /* mantiene colore testo */
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
+  gap: 10px;
+  padding: 10px;
 }
 
 .logo {
-  height: 40px;
-  margin-right: 10px;
+  height: 50px;
+  width: auto;
 }
 
 .brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+}
+
+@media (max-width: 600px) {
+  .brand {
+    font-size: 1.2rem;
+  }
+  .logo {
+    height: 40px;
+  }
 }
