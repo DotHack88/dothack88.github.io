@@ -338,3 +338,68 @@ form {
   border-radius: 6px;
   background: #f9f9f9;
 }
+
+/* style staff /*
+
+/* STAFF PAGE */
+.staff-container {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.team-hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.team-hero p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.team-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.team-card h3 {
+  margin-top: 15px;
+  font-size: 1.4em;
+  color: #333;
+}
+
+.team-card .role {
+  color: #888;
+  font-size: 1em;
+  margin: 5px 0;
+  font-style: italic;
+}
+
+.team-card .desc {
+  font-size: 0.95em;
+  color: #555;
+}
