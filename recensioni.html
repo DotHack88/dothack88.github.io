@@ -1,158 +1,164 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Recensioni - DotHack88</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
       margin: 0;
       padding: 0;
     }
-
-    header, footer {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 1em 0;
-    }
-
     .container {
       max-width: 600px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin: 80px auto;
+      background: #fff;
       padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-
-    h2 {
+    h1 {
       text-align: center;
-      margin-bottom: 20px;
+      color: #222;
     }
-
     input, textarea, select {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
+      margin-top: 10px;
+      margin-bottom: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 16px;
     }
-
-    button {
-      width: 100%;
-      background: #007bff;
+    .btn {
+      background-color: #007bff;
       color: white;
-      border: none;
       padding: 14px;
+      border: none;
+      width: 100%;
       border-radius: 8px;
-      font-weight: bold;
+      font-size: 16px;
       cursor: pointer;
+      transition: 0.3s;
     }
-
-    button:hover {
-      background: #0056cc;
+    .btn:hover {
+      background-color: #0056b3;
     }
-
-    .recensioni {
+    .star {
+      color: gold;
+      font-size: 20px;
+    }
+    .review-list {
       margin-top: 40px;
     }
-
-    .recensione {
-      background: #f1f1f1;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .recensione img {
-      max-width: 100px;
-      margin-top: 10px;
-      border-radius: 8px;
-    }
-
-    .stars {
-      color: gold;
-      font-size: 18px;
+    .review {
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>DotHack88</h1>
+  <!-- Header -->
+  <header style="background-color: #222; padding: 20px; text-align: center;">
+    <a href="index.html">
+      <img src="./assets/logo.png" alt="Logo" height="40" />
+    </a>
   </header>
 
   <div class="container">
-    <h2>Lascia una Recensione</h2>
+    <h1>Lascia una Recensione</h1>
     <form id="reviewForm">
-      <input type="text" id="nome" placeholder="Nome e Cognome (facoltativo)">
+      <input type="text" id="name" placeholder="Nome e Cognome (facoltativo)">
       <input type="email" id="email" placeholder="Email (facoltativa)">
-      <label for="voto">Voto:</label>
-      <select id="voto">
-        <option value="5">★★★★★</option>
-        <option value="4">★★★★☆</option>
-        <option value="3">★★★☆☆</option>
-        <option value="2">★★☆☆☆</option>
-        <option value="1">★☆☆☆☆</option>
+      
+      <label for="rating">Voto:</label>
+      <select id="rating">
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="1">⭐</option>
       </select>
-      <textarea id="testo" rows="4" placeholder="Scrivi la tua recensione qui..."></textarea>
-      <input type="file" id="immagine" accept="image/*">
-      <button type="submit">Invia Recensione</button>
+
+      <textarea id="comment" rows="4" placeholder="Scrivi la tua recensione qui..."></textarea>
+      <input type="file" id="imageUpload">
+      <button type="submit" class="btn">Invia Recensione</button>
     </form>
 
-    <div class="recensioni" id="recensioniContainer">
-      <h3>Recensioni pubblicate</h3>
-      <!-- Le recensioni appariranno qui -->
+    <div class="review-list" id="reviewList">
+      <!-- Le recensioni salvate verranno mostrate qui -->
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 DotHack88 - Tutti i diritti riservati</p>
+  <!-- Footer -->
+  <footer style="background-color: #222; color: white; text-align: center; padding: 20px; margin-top: 40px;">
+    <p>&copy; 2025 DotHack88 - Tutti i diritti riservati.</p>
   </footer>
 
   <script>
-    const form = document.getElementById("reviewForm");
-    const container = document.getElementById("recensioniContainer");
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("reviewForm");
+      const reviewList = document.getElementById("reviewList");
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+      function renderReviews() {
+        reviewList.innerHTML = "";
+        const reviews = JSON.parse(localStorage.getItem("recensioni") || "[]");
 
-      const nome = document.getElementById("nome").value || "Anonimo";
-      const email = document.getElementById("email").value;
-      const voto = document.getElementById("voto").value;
-      const testo = document.getElementById("testo").value;
-      const immagine = document.getElementById("immagine").files[0];
-
-      if (testo.trim() === "") {
-        alert("Scrivi almeno un messaggio.");
-        return;
+        reviews.forEach(r => {
+          const div = document.createElement("div");
+          div.className = "review";
+          div.innerHTML = `
+            <strong>${r.name || "Anonimo"}</strong> 
+            <span class="star">${"⭐".repeat(r.rating)}</span>
+            <p>${r.comment}</p>
+            ${r.image ? `<img src="${r.image}" alt="Immagine" style="max-width:100%; border-radius:8px; margin-top:10px;">` : ""}
+          `;
+          reviewList.appendChild(div);
+        });
       }
 
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        const div = document.createElement("div");
-        div.classList.add("recensione");
-        div.innerHTML = `
-          <strong>${nome}</strong><br>
-          <span class="stars">${"★".repeat(voto)}${"☆".repeat(5 - voto)}</span>
-          <p>${testo}</p>
-          ${immagine ? `<img src="${event.target.result}" alt="immagine">` : ""}
-        `;
-        container.appendChild(div);
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const rating = document.getElementById("rating").value;
+        const comment = document.getElementById("comment").value.trim();
+        const file = document.getElementById("imageUpload").files[0];
+
+        let imageData = null;
+        if (file) {
+          imageData = await toBase64(file);
+        }
+
+        const nuovaRecensione = {
+          name,
+          rating,
+          comment,
+          image: imageData
+        };
+
+        const reviews = JSON.parse(localStorage.getItem("recensioni") || "[]");
+        reviews.push(nuovaRecensione);
+        localStorage.setItem("recensioni", JSON.stringify(reviews));
+        renderReviews();
         form.reset();
-      };
+      });
 
-      if (immagine) {
-        reader.readAsDataURL(immagine);
-      } else {
-        reader.onload({ target: { result: null } });
+      function toBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (error) => reject(error);
+        });
       }
+
+      renderReviews();
     });
   </script>
 
