@@ -5,162 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Recensioni - DotHack88</title>
   <link rel="stylesheet" href="./style.css" />
-  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
+      background: #f5f5f5;
       margin: 0;
       padding: 0;
     }
-    .container {
-      max-width: 600px;
-      margin: 80px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    header, footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
     }
+
+    .container {
+      max-width: 700px;
+      margin: 3rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+
     h1 {
       text-align: center;
-      color: #222;
+      color: #333;
     }
-    input, textarea, select {
+
+    input, textarea, select, button {
       width: 100%;
       padding: 12px;
-      margin-top: 10px;
-      margin-bottom: 20px;
+      margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 1rem;
     }
-    .btn {
+
+    button {
       background-color: #007bff;
       color: white;
-      padding: 14px;
-      border: none;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
-    .btn:hover {
+
+    button:hover {
       background-color: #0056b3;
     }
-    .star {
-      color: gold;
-      font-size: 20px;
-    }
-    .review-list {
-      margin-top: 40px;
-    }
+
     .review {
-      border-top: 1px solid #ccc;
-      padding-top: 20px;
-      margin-top: 20px;
+      border-top: 1px solid #eee;
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+
+    .stars {
+      color: #ffc107;
+    }
+
+    .file-label {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .reviews-list {
+      margin-top: 2rem;
+    }
+
+    .review-img {
+      max-width: 100px;
+      border-radius: 8px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header style="background-color: #222; padding: 20px; text-align: center;">
-    <a href="index.html">
-      <img src="./assets/logo.png" alt="Logo" height="40" />
-    </a>
+  <header>
+    <h2>DotHack88</h2>
   </header>
 
-  <div class="container">
-    <h1>Lascia una Recensione</h1>
-    <form id="reviewForm">
-      <input type="text" id="name" placeholder="Nome e Cognome (facoltativo)">
-      <input type="email" id="email" placeholder="Email (facoltativa)">
-      
-      <label for="rating">Voto:</label>
-      <select id="rating">
-        <option value="5">⭐⭐⭐⭐⭐</option>
-        <option value="4">⭐⭐⭐⭐</option>
-        <option value="3">⭐⭐⭐</option>
-        <option value="2">⭐⭐</option>
-        <option value="1">⭐</option>
-      </select>
+  <main>
+    <div class="container">
+      <h1>Lascia una Recensione</h1>
 
-      <textarea id="comment" rows="4" placeholder="Scrivi la tua recensione qui..."></textarea>
-      <input type="file" id="imageUpload">
-      <button type="submit" class="btn">Invia Recensione</button>
-    </form>
+      <form id="reviewForm">
+        <input type="text" id="name" placeholder="Nome e Cognome (facoltativo)">
+        <input type="email" id="email" placeholder="Email (facoltativa)">
+        
+        <label for="rating">Voto:</label>
+        <select id="rating" required>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="1">⭐</option>
+        </select>
 
-    <div class="review-list" id="reviewList">
-      <!-- Le recensioni salvate verranno mostrate qui -->
+        <textarea id="message" placeholder="Scrivi la tua recensione qui..." rows="4" required></textarea>
+        
+        <input type="file" id="imageUpload" accept="image/*" />
+        
+        <button type="submit">Invia Recensione</button>
+      </form>
+
+      <div class="reviews-list" id="reviewsList"></div>
     </div>
-  </div>
+  </main>
 
-  <!-- Footer -->
-  <footer style="background-color: #222; color: white; text-align: center; padding: 20px; margin-top: 40px;">
-    <p>&copy; 2025 DotHack88 - Tutti i diritti riservati.</p>
+  <footer>
+    <p>&copy; 2025 DotHack88 - Tutti i diritti riservati</p>
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("reviewForm");
-      const reviewList = document.getElementById("reviewList");
+    const reviewForm = document.getElementById("reviewForm");
+    const reviewsList = document.getElementById("reviewsList");
 
-      function renderReviews() {
-        reviewList.innerHTML = "";
-        const reviews = JSON.parse(localStorage.getItem("recensioni") || "[]");
+    function getReviews() {
+      return JSON.parse(localStorage.getItem("reviews") || "[]");
+    }
 
-        reviews.forEach(r => {
-          const div = document.createElement("div");
-          div.className = "review";
-          div.innerHTML = `
-            <strong>${r.name || "Anonimo"}</strong> 
-            <span class="star">${"⭐".repeat(r.rating)}</span>
-            <p>${r.comment}</p>
-            ${r.image ? `<img src="${r.image}" alt="Immagine" style="max-width:100%; border-radius:8px; margin-top:10px;">` : ""}
-          `;
-          reviewList.appendChild(div);
-        });
-      }
+    function saveReviewToStorage(review) {
+      const reviews = getReviews();
+      reviews.unshift(review); // aggiungi in cima
+      localStorage.setItem("reviews", JSON.stringify(reviews));
+    }
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const name = document.getElementById("name").value.trim();
-        const rating = document.getElementById("rating").value;
-        const comment = document.getElementById("comment").value.trim();
-        const file = document.getElementById("imageUpload").files[0];
+    function renderReviews() {
+      const reviews = getReviews();
+      reviewsList.innerHTML = "";
 
-        let imageData = null;
-        if (file) {
-          imageData = await toBase64(file);
-        }
+      reviews.forEach(r => {
+        const div = document.createElement("div");
+        div.classList.add("review");
 
-        const nuovaRecensione = {
+        div.innerHTML = `
+          <strong>${r.name || "Anonimo"}</strong><br>
+          <span class="stars">${"⭐".repeat(r.rating)}</span><br>
+          <p>${r.message}</p>
+          ${r.image ? `<img src="${r.image}" class="review-img" />` : ""}
+        `;
+
+        reviewsList.appendChild(div);
+      });
+    }
+
+    reviewForm.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const rating = document.getElementById("rating").value;
+      const message = document.getElementById("message").value;
+      const file = document.getElementById("imageUpload").files[0];
+
+      const reader = new FileReader();
+      reader.onload = function() {
+        const imageBase64 = reader.result;
+
+        const review = {
           name,
+          email,
           rating,
-          comment,
-          image: imageData
+          message,
+          image: file ? imageBase64 : null,
+          date: new Date().toISOString()
         };
 
-        const reviews = JSON.parse(localStorage.getItem("recensioni") || "[]");
-        reviews.push(nuovaRecensione);
-        localStorage.setItem("recensioni", JSON.stringify(reviews));
+        saveReviewToStorage(review);
         renderReviews();
-        form.reset();
-      });
+        reviewForm.reset();
+      };
 
-      function toBase64(file) {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(file);
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = (error) => reject(error);
-        });
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        reader.onload();
       }
-
-      renderReviews();
     });
-  </script>
 
+    // Render iniziale
+    renderReviews();
+  </script>
 </body>
 </html>
