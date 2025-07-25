@@ -19,16 +19,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.logo img {
   height: 40px;
   margin-right: 10px;
 }
@@ -64,6 +64,7 @@ header {
   display: none;
   font-size: 28px;
   cursor: pointer;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -76,6 +77,7 @@ header {
     right: 20px;
     padding: 15px;
     border-radius: 10px;
+    width: 200px;
   }
 
   .nav-links.open {
@@ -84,6 +86,19 @@ header {
 
   .hamburger {
     display: block;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .nav-links li {
+    margin: 5px 0;
   }
 }
 
@@ -161,4 +176,74 @@ footer .socials a {
 
 footer .socials a:hover {
   color: #ff9900;
+}
+
+.form-recensione {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 10px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .form-recensione {
+    padding: 10px;
+  }
+
+  input, textarea {
+    font-size: 0.95rem;
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* Responsive general adjustments */
+@media (max-width: 768px) {
+  main h1 {
+    font-size: 28px;
+  }
+
+  .staff-member img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card {
+    margin: 10px;
+  }
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
 }
