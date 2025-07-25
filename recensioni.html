@@ -2,190 +2,17 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recensioni – Smartdognapoli</title>
-
-  <!-- Icona e font -->
-  <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
-        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* Stile base */
-    body {
-      font-family: 'Nunito', Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background-color: #1a1a1a;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    header a.logo-container {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: white;
-    }
-    header a.logo-container img.logo {
-      height: 40px;
-      margin-right: 10px;
-    }
-    header a.logo-container .brand {
-      font-weight: 700;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-    }
-    nav ul.nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
-    }
-    nav ul.nav-links li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    nav ul.nav-links li a:hover,
-    nav ul.nav-links li a:focus {
-      color: #007bff;
-      outline: none;
-    }
-
-    main {
-      max-width: 700px;
-      margin: 2rem auto 4rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      flex-grow: 1; /* fa crescere main per spingere footer in basso */
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      color: #222;
-    }
-
-    form input[type="text"],
-    form input[type="email"],
-    form textarea,
-    form select,
-    form input[type="file"],
-    form button {
-      width: 100%;
-      padding: 12px 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      font-family: inherit;
-      box-sizing: border-box;
-    }
-    form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    form button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    form button:hover,
-    form button:focus {
-      background-color: #0056b3;
-      outline: none;
-    }
-    label[for="rating"] {
-      font-weight: 600;
-      display: block;
-      margin-top: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .reviews-list {
-      margin-top: 2rem;
-    }
-    .review {
-      border-top: 1px solid #eee;
-      padding: 1rem 0;
-    }
-    .review strong {
-      font-size: 1.1rem;
-      color: #222;
-    }
-    .stars {
-      color: #ffc107;
-      font-size: 1.2rem;
-      margin: 0.2rem 0 0.5rem 0;
-      display: inline-block;
-    }
-    .review p {
-      margin: 0.3rem 0 0.5rem 0;
-      white-space: pre-line;
-    }
-    .review-img {
-      max-width: 120px;
-      max-height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-top: 8px;
-      display: block;
-      box-shadow: 0 0 8px rgba(0,0,0,0.15);
-    }
-
-    footer {
-      background-color: #1a1a1a;
-      color: white;
-      text-align: center;
-      padding: 1rem 2rem;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      nav ul.nav-links {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: center;
-      }
-      main {
-        margin: 1rem 1rem 4rem 1rem;
-      }
-    }
-  </style>
 </head>
 <body>
-
   <header>
-    <a href="index.html" class="logo-container" aria-label="Torna alla home">
-      <img src="assets/logo.png" alt="Logo Smartdognapoli" class="logo" />
+    <a href="index.html" class="logo-container">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
       <span class="brand">Smartdognapoli</span>
     </a>
     <nav>
@@ -194,145 +21,39 @@
         <li><a href="index.html#chi-sono">Chi Sono</a></li>
         <li><a href="adoptions.html">Adozioni</a></li>
         <li><a href="index.html#contatti">Contatti</a></li>
-        <li><a href="recensioni.html" aria-current="page">Recensioni</a></li>
+        <li><a href="recensioni.html" class="active">Recensioni</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
+  <main class="container">
     <h1>Lascia una Recensione</h1>
-
-    <form id="reviewForm" aria-label="Modulo per lasciare una recensione">
-      <input type="text" id="name" placeholder="Nome e Cognome (facoltativo)" aria-label="Nome e Cognome" />
-      <input type="email" id="email" placeholder="Email (facoltativa)" aria-label="Email" />
-      
-      <label for="rating">Voto <span aria-hidden="true">⭐</span>:</label>
-      <select id="rating" required aria-required="true" aria-describedby="ratingHelp">
-        <option value="">Seleziona un voto</option>
-        <option value="5">⭐⭐⭐⭐⭐</option>
-        <option value="4">⭐⭐⭐⭐</option>
-        <option value="3">⭐⭐⭐</option>
-        <option value="2">⭐⭐</option>
-        <option value="1">⭐</option>
-      </select>
-      <small id="ratingHelp" style="color:#555; font-size:0.85rem;">Seleziona un voto da 1 a 5 stelle</small>
-
-      <textarea id="message" placeholder="Scrivi la tua recensione qui..." rows="5" required aria-required="true"></textarea>
-      
-      <input type="file" id="imageUpload" accept="image/*" aria-label="Carica immagine facoltativa" />
-      
+    <form id="review-form">
+      <input type="text" id="name" placeholder="Nome (opzionale)" />
+      <input type="email" id="email" placeholder="Email (opzionale)" />
+      <textarea id="message" placeholder="Scrivi la tua recensione..." required></textarea>
+      <div class="stars">
+        <span>Voto:</span>
+        <div id="star-rating">
+          <i class="fa-regular fa-star" data-value="1"></i>
+          <i class="fa-regular fa-star" data-value="2"></i>
+          <i class="fa-regular fa-star" data-value="3"></i>
+          <i class="fa-regular fa-star" data-value="4"></i>
+          <i class="fa-regular fa-star" data-value="5"></i>
+        </div>
+      </div>
+      <input type="file" id="photo" accept="image/*" />
       <button type="submit">Invia Recensione</button>
     </form>
 
-    <section class="reviews-list" id="reviewsList" aria-live="polite" aria-relevant="additions"></section>
+    <h2>Recensioni</h2>
+    <div id="reviews-list"></div>
   </main>
 
   <footer>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/smartdognapoli" target="_blank" rel="noopener noreferrer" aria-label="Facebook Smartdognapoli">
-        <img src="assets/icon/facebook.svg" alt="Facebook" />
-      </a>
-      <a href="https://www.instagram.com/tua_pagina" target="_blank" rel="noopener noreferrer" aria-label="Instagram Smartdognapoli">
-        <img src="assets/icon/instagram.svg" alt="Instagram" />
-      </a>
-      <a href="https://www.tiktok.com/@tuo_profilo" target="_blank" rel="noopener noreferrer" aria-label="TikTok Smartdognapoli">
-        <img src="assets/icon/tiktok.svg" alt="TikTok" />
-      </a>
-      <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x133b0eddfa13099d:0xfe5131a0f30b3f4e?sa=X&ved=1t:8290&ictx=111" target="_blank" rel="noopener noreferrer" aria-label="Google Maps Smartdognapoli">
-        <img src="assets/icon/googlemaps.svg" alt="Google Maps" />
-      </a>
-      <a href="https://api.whatsapp.com/send?phone=393351373392&text/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Smartdognapoli">
-        <img src="assets/icon/whatsapp.svg" alt="WhatsApp" />
-      </a>
-    </div>
-    <p>&copy; 2025 Smartdognapoli – Tutti i diritti riservati.</p>
+    <p>&copy; 2025 Smartdognapoli – Tutti i diritti riservati</p>
   </footer>
 
-  <script>
-    const reviewForm = document.getElementById("reviewForm");
-    const reviewsList = document.getElementById("reviewsList");
-
-    function getReviews() {
-      return JSON.parse(localStorage.getItem("reviews") || "[]");
-    }
-
-    function saveReviewToStorage(review) {
-      const reviews = getReviews();
-      reviews.unshift(review); // aggiungi in cima
-      localStorage.setItem("reviews", JSON.stringify(reviews));
-    }
-
-    function renderReviews() {
-      const reviews = getReviews();
-      reviewsList.innerHTML = "";
-
-      reviews.forEach(r => {
-        const div = document.createElement("div");
-        div.classList.add("review");
-
-        div.innerHTML = `
-          <strong>${r.name ? escapeHTML(r.name) : "Anonimo"}</strong><br>
-          <span class="stars" aria-label="Voto: ${r.rating} stelle">${"⭐".repeat(r.rating)}</span><br>
-          <p>${escapeHTML(r.message).replace(/\n/g, "<br>")}</p>
-          ${r.image ? `<img src="${r.image}" alt="Immagine caricata dalla recensione di ${escapeHTML(r.name || "Anonimo")}" class="review-img" />` : ""}
-        `;
-
-        reviewsList.appendChild(div);
-      });
-    }
-
-    // Funzione per prevenire XSS semplice
-    function escapeHTML(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
-    reviewForm.addEventListener("submit", e => {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim(); // usiamo solo per info, non mostrato
-      const rating = document.getElementById("rating").value;
-      const message = document.getElementById("message").value.trim();
-      const file = document.getElementById("imageUpload").files[0];
-
-      if (!rating) {
-        alert("Per favore, seleziona un voto.");
-        return;
-      }
-      if (!message) {
-        alert("Per favore, scrivi la tua recensione.");
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = function() {
-        const imageBase64 = reader.result;
-
-        const review = {
-          name,
-          email,
-          rating,
-          message,
-          image: file ? imageBase64 : null,
-          date: new Date().toISOString()
-        };
-
-        saveReviewToStorage(review);
-        renderReviews();
-        reviewForm.reset();
-      };
-
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        reader.onload();
-      }
-    });
-
-    // Render iniziale
-    renderReviews();
-  </script>
+  <script src="recensioni.js"></script>
 </body>
 </html>

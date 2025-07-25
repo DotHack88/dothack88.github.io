@@ -1,31 +1,27 @@
-/* Reset base */
-* {
+body {
+  font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-header {
-  background-color: #222;
+header.site-header, footer.site-footer {
+  background: #333;
   color: #fff;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  padding: 1rem 0;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   text-decoration: none;
+  color: #fff;
 }
 
 .logo {
@@ -33,217 +29,76 @@ header {
   margin-right: 10px;
 }
 
-.nav {
+.nav-menu ul {
   display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
+  gap: 1rem;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.nav-links a {
+.nav-menu a {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active,
-.nav-links a[aria-current="page"] {
-  color: #ff9900;
-  text-decoration: underline;
-  font-weight: bold;
+.hero {
+  position: relative;
+  overflow: hidden;
+  max-height: 400px;
 }
 
-/* Hamburger menu */
-.hamburger {
+.slider-container {
+  position: relative;
+}
+
+.slide {
   display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #fff;
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #222;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 15px;
-    border-radius: 10px;
-    width: 200px;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .logo {
-    height: 40px;
-  }
-
-  .nav-links li {
-    margin: 5px 0;
-  }
+.slide.active {
+  display: block;
 }
 
-/* Main content */
-main {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-main h1 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 30px;
-}
-
-.staff-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-}
-
-.staff-member {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.staff-member:hover {
-  transform: translateY(-5px);
-}
-
-.staff-member img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-
-.staff-member h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.staff-member p {
-  font-size: 14px;
-  color: #666;
-}
-
-/* Footer */
-footer {
-  background-color: #222;
-  color: #fff;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 40px;
-}
-
-footer .socials {
+.dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
+  gap: 10px;
 }
 
-footer .socials a {
-  color: #fff;
-  font-size: 20px;
-  transition: color 0.3s ease;
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
-footer .socials a:hover {
-  color: #ff9900;
+.dot.active {
+  opacity: 1;
 }
 
-.form-recensione {
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background: white;
-  border-radius: 10px;
-}
-
-input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-@media (max-width: 480px) {
-  .form-recensione {
-    padding: 10px;
-  }
-
-  input, textarea {
-    font-size: 0.95rem;
-  }
-}
-
-.card {
-  width: 100%;
-  max-width: 400px;
-  margin: 10px auto;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  background-color: #fff;
-}
-
-@media (min-width: 768px) {
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-}
-
-/* Responsive general adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-  main h1 {
-    font-size: 28px;
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .staff-member img {
-    width: 100px;
-    height: 100px;
+  .slide img {
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
   }
-
-  .card {
-    margin: 10px;
-  }
-}
-
-/* Utility */
-.hidden {
-  display: none !important;
 }
