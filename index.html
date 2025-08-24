@@ -1,91 +1,39 @@
 <!DOCTYPE html>
-<html lang="it" class="dark">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vetrina Prodotti Digitali</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sito Servizi Digitali</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
-    }
-  </script>
   <style>
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    /* Animazione del logo */
+    .logo {
+      transition: transform 0.5s ease-in-out;
+    }
+    .logo:hover {
+      transform: rotate(360deg);
+    }
   </style>
 </head>
-<body class="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-100 font-sans">
-
+<body class="bg-gray-100 font-sans">
   <!-- Top Bar -->
-  <nav class="flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-800 shadow">
-    <div class="flex space-x-6">
-      <a href="#" class="font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600">Home</a>
-      <a href="#" class="font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600">Contatti</a>
-      <a href="#" class="font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600">Info</a>
-      <div class="relative group">
-        <button class="inline-flex items-center font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600">
-          Prodotti
-          <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-        </button>
-        <div class="absolute left-0 hidden group-hover:block mt-2 w-56 origin-top-left rounded-xl bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black/5">
-          <div class="p-2">
-            <div class="rounded-md px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200">PlayStation</div>
-            <div class="ml-6 text-sm text-gray-600 dark:text-gray-400">Giochi</div>
-            <div class="ml-6 text-sm text-gray-600 dark:text-gray-400 mb-2">Abbonamenti</div>
-            <div class="rounded-md px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200">Software</div>
-          </div>
-        </div>
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Logo" class="w-10 h-10 logo">
+        <span class="text-xl font-bold text-gray-800">MyServices</span>
       </div>
+
+      <!-- Menu -->
+      <nav class="space-x-6 text-lg font-medium text-gray-700">
+        <a href="#" class="hover:text-blue-500 transition">Home</a>
+        <a href="#" class="hover:text-blue-500 transition">Prodotti</a>
+        <a href="#" class="hover:text-blue-500 transition">Contatti</a>
+      </nav>
+
     </div>
-
-    <!-- Dark Mode Toggle -->
-    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600">
-      🌙/☀️
-    </button>
-  </nav>
-
-  <!-- Slider orizzontale -->
-  <div class="p-6">
-    <h2 class="text-2xl font-bold mb-4">In evidenza</h2>
-    <div class="flex space-x-4 overflow-x-auto pb-4 scrollbar-hide">
-      <div class="min-w-[200px] bg-white dark:bg-gray-800 shadow rounded-2xl p-4 flex-shrink-0">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Adobe Photoshop" class="h-32 w-full object-contain mb-2" />
-        <h3 class="font-semibold text-gray-800 dark:text-gray-100">Adobe Photoshop</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-2">€19.99</p>
-        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl">Acquista</button>
-      </div>
-      <div class="min-w-[200px] bg-white dark:bg-gray-800 shadow rounded-2xl p-4 flex-shrink-0">
-        <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" alt="Cyberpunk 2077" class="h-32 w-full object-contain mb-2" />
-        <h3 class="font-semibold text-gray-800 dark:text-gray-100">Cyberpunk 2077</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-2">€59.99</p>
-        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl">Acquista</button>
-      </div>
-      <div class="min-w-[200px] bg-white dark:bg-gray-800 shadow rounded-2xl p-4 flex-shrink-0">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Xbox_Game_Pass.png" alt="Xbox Game Pass" class="h-32 w-full object-contain mb-2" />
-        <h3 class="font-semibold text-gray-800 dark:text-gray-100">Xbox Game Pass</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-2">€14.99</p>
-        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl">Acquista</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sezione Prodotti -->
-  <div class="p-6">
-    <h2 class="text-2xl font-bold mb-4">Prodotti</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-white dark:bg-gray-800 shadow rounded-2xl p-6 flex flex-col items-center">
-        <span class="text-5xl mb-2">🎮</span>
-        <h3 class="text-xl font-semibold">PlayStation</h3>
-        <p class="text-gray-600 dark:text-gray-300">Giochi, Abbonamenti</p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 shadow rounded-2xl p-6 flex flex-col items-center">
-        <span class="text-5xl mb-2">💻</span>
-        <h3 class="text-xl font-semibold">Software</h3>
-        <p class="text-gray-600 dark:text-gray-300">Applicazioni e tools</p>
-      </div>
-    </div>
-  </div>
-
+  </header>
 </body>
 </html>
