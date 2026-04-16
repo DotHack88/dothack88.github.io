@@ -1,0 +1,54 @@
+{
+  "name": "WorkLog",
+  "type": "object",
+  "properties": {
+    "bonsai_id": {
+      "type": "string",
+      "title": "Bonsai"
+    },
+    "work_type": {
+      "type": "string",
+      "title": "Tipo lavorazione",
+      "enum": [
+        "Rinvaso",
+        "Applicazione filo",
+        "Concimatura",
+        "Potatura di formazione",
+        "Potatura di mantenimento",
+        "Rimozione filo",
+        "Shari e Jin",
+        "Margotta",
+        "Trattamento antiparassitari/funghi",
+        "Altro"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "title": "Data"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Note"
+    }
+  },
+  "required": [
+    "bonsai_id",
+    "work_type",
+    "date"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

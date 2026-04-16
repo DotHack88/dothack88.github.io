@@ -1,0 +1,90 @@
+{
+  "name": "Bonsai",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Nome"
+    },
+    "species": {
+      "type": "string",
+      "title": "Specie"
+    },
+    "category": {
+      "type": "string",
+      "title": "Categoria",
+      "enum": [
+        "Latifoglie (Decidui)",
+        "Conifere",
+        "Tropicali / da Interno",
+        "Bonsai da Fiore / Frutto"
+      ]
+    },
+    "style": {
+      "type": "string",
+      "title": "Stile",
+      "enum": [
+        "Stile eretto formale (Chokkan)",
+        "Stile eretto informale (Moyogi)",
+        "Stile inclinato (Shakan)",
+        "Stile a semi-cascata (Han-Kengai)",
+        "Stile a cascata (Kengai)",
+        "Stile a spirale (Bankan)",
+        "Stile a bosco (Yose-Ue)",
+        "Stile a zattera (Ikadabuki)",
+        "Stile a scopa rovesciata (Hokidachi)",
+        "Stile su roccia (Sekijoju / Ishitsuki)",
+        "Stile spazzato dal vento (Fukinagashi)",
+        "Stile a doppio tronco (Sokan)",
+        "Stile literato (Bunjingi)",
+        "Stile a radice esposta (Negari)"
+      ]
+    },
+    "size": {
+      "type": "string",
+      "title": "Dimensione",
+      "enum": [
+        "Mame / Shito (Miniatura) \u2014 < 7-10 cm",
+        "Shohin (Piccolo) \u2014 10-25 cm",
+        "Kifu (Medio-piccolo) \u2014 20-40 cm",
+        "Chuhin / Chu (Medio) \u2014 35-70 cm",
+        "Omono / Dai (Grande) \u2014 70-120 cm",
+        "Imperial / Bonju (Molto Grande) \u2014 > 120 cm"
+      ]
+    },
+    "acquisition_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Data acquisizione"
+    },
+    "photo_url": {
+      "type": "string",
+      "title": "Foto principale"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Note"
+    }
+  },
+  "required": [
+    "name",
+    "species"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
