@@ -220,13 +220,24 @@
       font-size: 1.05rem;
       font-style: italic;
       color: var(--text2);
-      margin-top: 2rem;
-      padding: 1rem 1.5rem;
-      border-left: 3px solid var(--accent);
+      margin: 2rem auto 0;
+      padding: 1.2rem 2rem;
+      border-bottom: 2px solid var(--accent);
       background: var(--bg2);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      text-align: left;
+      border-radius: var(--radius);
+      text-align: center;
+      max-width: 600px;
       animation: fadeUp .7s .3s ease both;
+      position: relative;
+    }
+    .hero-quote::before {
+      content: '"';
+      position: absolute;
+      top: -10px; left: 20px;
+      font-size: 3rem;
+      color: var(--accent);
+      opacity: 0.3;
+      font-family: serif;
     }
 
     .hero-cta {
@@ -308,14 +319,25 @@
     .sec-header { margin-bottom: 0; }
 
     /* ── PROJECTS ───────────────────────────────────────────── */
-    #projects { padding: 6rem 0; background: var(--bg2); }
+    #projects { padding: 6rem 0; background: var(--bg2); overflow: hidden; }
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+      overflow-x: auto;
       gap: 1.5rem;
       margin-top: 0;
+      padding: 1rem 0 2rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--bg);
     }
+    .projects-grid::-webkit-scrollbar { height: 6px; }
+    .projects-grid::-webkit-scrollbar-track { background: var(--bg); }
+    .projects-grid::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+    
     .project-card {
+      min-width: 320px;
+      max-width: 320px;
+      scroll-snap-align: start;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: calc(var(--radius) * 1.5);
@@ -343,7 +365,12 @@
       overflow: hidden;
     }
     .card-visual.ps { background: linear-gradient(135deg, #0a1528 0%, #001a45 100%); }
+    .card-visual.psplus { background: linear-gradient(135deg, #0a1c28 0%, #00457c 100%); }
+    .card-visual.animali { background: linear-gradient(135deg, #281a0a 0%, #452a00 100%); }
+    .card-visual.spelo { background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%); }
+    .card-visual.cleaner { background: linear-gradient(135deg, #0a2828 0%, #004545 100%); }
     .card-visual.bonsai { background: linear-gradient(135deg, #071a10 0%, #0a2d18 100%); }
+    
     .card-visual-glow {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
@@ -357,6 +384,10 @@
       opacity: .4;
     }
     .card-visual.ps .card-visual-glow::after { background: #0090ff; }
+    .card-visual.psplus .card-visual-glow::after { background: #ffd700; }
+    .card-visual.animali .card-visual-glow::after { background: #ff8c00; }
+    .card-visual.spelo .card-visual-glow::after { background: #ffffff; }
+    .card-visual.cleaner .card-visual-glow::after { background: #00f5c4; }
     .card-visual.bonsai .card-visual-glow::after { background: #00c44a; }
     .card-icon { font-size: 3.5rem; position: relative; z-index: 1; filter: drop-shadow(0 0 12px currentColor); }
 
@@ -654,24 +685,131 @@
         <div class="card-body">
           <div class="card-title">PS Store Scraper</div>
           <p class="card-desc">
-            Tracker globale dei prezzi PlayStation Plus su ~50 regioni. Conversione live in EUR, tabelle ordinabili, calcolatore gift card con denominazioni ottimali per 14 regioni e link al marketplace.
+            Tracker globale dei prezzi PlayStation Plus su ~50 regioni. Conversione live in EUR, tabelle ordinabili e calcolo gift card.
           </p>
           <div class="card-tags">
             <span class="tag">Next.js</span>
             <span class="tag">TypeScript</span>
-            <span class="tag">Vercel</span>
             <span class="tag">Web Scraping</span>
-            <span class="tag">REST API</span>
           </div>
           <div class="card-links">
             <a href="https://github.com/DotHack88/Ps-Scraper" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
-            <a href="https://ps-scraper.vercel.app" target="_blank" rel="noopener" class="card-link">Live Demo ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PS Plus Pricing -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="card-visual psplus">
+          <div class="card-visual-glow"></div>
+          <span class="card-icon">💳</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">PS Plus Scraper</div>
+          <p class="card-desc">
+            Monitoraggio specifico per i prezzi degli abbonamenti PlayStation Plus tra le varie regioni globali per massimizzare il risparmio.
+          </p>
+          <div class="card-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Scraping</span>
+            <span class="tag">Pricing</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/DotHack88/ps-plus-pricing" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adozione Animali -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="card-visual animali">
+          <div class="card-visual-glow"></div>
+          <span class="card-icon">🐾</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Adozione Animali "WIP"</div>
+          <p class="card-desc">
+            Piattaforma in sviluppo per la gestione e promozione delle adozioni di animali, facilitando l'incontro tra rifugi e adottanti.
+          </p>
+          <div class="card-tags">
+            <span class="tag">React</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">WIP</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/DotHack88/Adozioni-Animali" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- spelobook -->
+      <div class="project-card reveal">
+        <div class="card-visual spelo">
+          <div class="card-visual-glow"></div>
+          <span class="card-icon">🔦</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">spelobook</div>
+          <p class="card-desc">
+            Sistema di prenotazione per escursioni speleologiche con gestione calendari, disponibilità in tempo reale e schede tecniche.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Booking</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/DotHack88/spelobook" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pulizia File Windows -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="card-visual cleaner">
+          <div class="card-visual-glow"></div>
+          <span class="card-icon">🧹</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Pulizia File Windows</div>
+          <p class="card-desc">
+            Utility per l'ottimizzazione del sistema Windows tramite la pulizia profonda di file temporanei e cache di sistema.
+          </p>
+          <div class="card-tags">
+            <span class="tag">PowerShell</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Utility</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/DotHack88/Pulizia-File-Windows" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registro Cleaner -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="card-visual cleaner">
+          <div class="card-visual-glow"></div>
+          <span class="card-icon">⚙️</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Registro Cleaner</div>
+          <p class="card-desc">
+            Strumento di manutenzione per il registro di sistema Windows, progettato per rimuovere voci orfane e migliorare la stabilità.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Batch</span>
+            <span class="tag">Windows</span>
+            <span class="tag">System</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/DotHack88/Registro-Cleaner" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
           </div>
         </div>
       </div>
 
       <!-- Bonsai Tracker -->
-      <div class="project-card reveal reveal-delay-1">
+      <div class="project-card reveal">
         <div class="card-visual bonsai">
           <div class="card-visual-glow"></div>
           <span class="card-icon">🌿</span>
@@ -679,17 +817,15 @@
         <div class="card-body">
           <div class="card-title">Bonsai Tracker</div>
           <p class="card-desc">
-            App React per il monitoraggio delle piante bonsai. Analisi fotografica AI per identificazione specie e salute, log delle lavorazioni, promemoria, calendario stagionale e dashboard meteo via API.
+            App per il monitoraggio della salute dei bonsai con analisi AI, log delle lavorazioni e promemoria per la cura stagionale.
           </p>
           <div class="card-tags">
             <span class="tag">React</span>
-            <span class="tag">Claude API</span>
-            <span class="tag">Open-Meteo</span>
-            <span class="tag">Nominatim</span>
+            <span class="tag">AI Integration</span>
             <span class="tag">PWA</span>
           </div>
           <div class="card-links">
-            <a href="https://github.com/DotHack88" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
+            <a href="https://github.com/DotHack88/Bonsai" target="_blank" rel="noopener" class="card-link primary">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -728,6 +864,11 @@
           <span class="interest-chip">AI Integration</span>
           <span class="interest-chip">Bonsai 🌿</span>
         </div>
+        <div style="margin-top: 2rem;">
+          <a href="https://ko-fi.com/tidus291" target="_blank" rel="noopener" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem; border-color: #ff5f5f; color: #ff5f5f;">
+            <span style="font-size: 1.2rem;">☕</span> Supportami su Ko-fi
+          </a>
+        </div>
       </div>
 
       <div class="reveal reveal-delay-1">
@@ -735,7 +876,7 @@
           <div class="skill-group-title">// STAT OVERVIEW</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
             <div style="text-align:center;padding:1rem;background:var(--bg3);border-radius:8px;border:1px solid var(--border)">
-              <div style="font-family:var(--font-head);font-size:1.8rem;color:var(--accent);font-weight:800">2+</div>
+              <div style="font-family:var(--font-head);font-size:1.8rem;color:var(--accent);font-weight:800">7+</div>
               <div style="font-size:.78rem;color:var(--text3);font-family:var(--font-mono)">PROGETTI</div>
             </div>
             <div style="text-align:center;padding:1rem;background:var(--bg3);border-radius:8px;border:1px solid var(--border)">
