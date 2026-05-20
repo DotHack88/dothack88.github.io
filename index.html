@@ -593,6 +593,14 @@
       background: linear-gradient(135deg, #071a10 0%, #0a2d18 100%);
     }
 
+    .card-visual.agave {
+      background: linear-gradient(135deg, #1a2810 0%, #2d4a0a 100%);
+    }
+
+    .card-visual.taxi {
+      background: linear-gradient(135deg, #2a2410 0%, #4a3a0a 100%);
+    }
+
     .card-visual-glow {
       position: absolute;
       inset: 0;
@@ -633,6 +641,14 @@
 
     .card-visual.bonsai .card-visual-glow::after {
       background: #00c44a;
+    }
+
+    .card-visual.agave .card-visual-glow::after {
+      background: #adff2f;
+    }
+
+    .card-visual.taxi .card-visual-glow::after {
+      background: #ffdd00;
     }
 
     .card-icon {
@@ -1274,6 +1290,52 @@
             </div>
             <div class="card-links">
               <a href="https://github.com/DotHack88/Bonsai" target="_blank" rel="noopener"
+                class="card-link primary">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agave -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="card-visual agave">
+            <div class="card-visual-glow"></div>
+            <span class="card-icon">🌵</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Agave</div>
+            <p class="card-desc">
+              Progetto dedicato alla gestione e monitoraggio della salute delle piante di Agave con tracking della crescita e analisi ambientale.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Data Tracking</span>
+              <span class="tag">Nature</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/DotHack88/Agave" target="_blank" rel="noopener"
+                class="card-link primary">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Taxi -->
+        <div class="project-card reveal reveal-delay-2">
+          <div class="card-visual taxi">
+            <div class="card-visual-glow"></div>
+            <span class="card-icon">🚕</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Taxi</div>
+            <p class="card-desc">
+              Applicazione per la gestione e prenotazione di servizi taxi con real-time tracking, storico corse e sistema di rating.
+            </p>
+            <div class="card-tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Real-time GPS</span>
+              <span class="tag">Booking</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/DotHack88/Taxi" target="_blank" rel="noopener"
                 class="card-link primary">GitHub ↗</a>
             </div>
           </div>
